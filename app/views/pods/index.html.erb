@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Pods</h1>
+
+<div id="pods">
+  <% @pods.each do |pod| %>
+    <%= render pod %>
+    <p>
+      <%= link_to "Show this pod", pod %>
+    </p>
+  <% end %>
+</div>
+<% if admin_signed_in?%>
+
+<%= link_to "New pod", new_pod_path %>
+<%end%>

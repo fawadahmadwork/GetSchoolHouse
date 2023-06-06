@@ -1,15 +1,9 @@
 Rails.application.routes.draw do
+  resources :teachers
+  resources :pods
+  devise_for :admins
+  devise_for :users
   root "home#index"
   get "home/index"
-
-  devise_for :users,  controllers: {
-    sessions: 'users/sessions'
-  } 
-  
   resources :children
-
-
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
 end

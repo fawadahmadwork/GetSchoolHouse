@@ -18,12 +18,12 @@
 
   <div>
     <%= form.label :age, style: "display: block" %>
-    <%= form.number_field :age %>
+    <%= form.number_field :age, placeholder: 'select from 6 to 13' %>
   </div>
 
   <div>
     <%= form.label :grade, style: "display: block" %>
-    <%= form.text_field :grade %>
+     <%= form.select :grade, options_for_select((1..5).map { |n| [n.ordinalize, n] }) %>
   </div>
 
   
