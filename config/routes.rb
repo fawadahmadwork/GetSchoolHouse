@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
+  root "home#index"
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   resources :teachers
   resources :pods
-  devise_for :admins
   devise_for :users
-  root "home#index"
   get "home/index"
   resources :children
 end

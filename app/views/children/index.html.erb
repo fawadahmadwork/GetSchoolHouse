@@ -2,14 +2,13 @@
 
 <h1>Children</h1>
 
+<%= link_to "New child", new_child_path %><br><br>
 <div id="children">
   <% @children.each do |child| %>
     <%= render child %>
-    
     <p>
       <%= link_to "Show this child", child %>
     </p>
   <% end %>
 </div>
 
-<%= link_to "New child", new_child_path %>

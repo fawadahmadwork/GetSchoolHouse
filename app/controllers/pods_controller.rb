@@ -1,12 +1,18 @@
 class PodsController < ApplicationController
+  load_and_authorize_resource
+
   before_action :set_pod, only: %i[ show edit update destroy ]
-  before_action :authenticate_admin!, except: %i[ index show]
+  
+  
+  
+
   def index
     @pods = Pod.all
   end
 
   
   def show
+
   end
 
   
@@ -55,6 +61,8 @@ class PodsController < ApplicationController
   end
 
   private
+
+   
     
     def set_pod
       @pod = Pod.find(params[:id])

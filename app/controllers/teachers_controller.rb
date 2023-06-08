@@ -1,7 +1,9 @@
 class TeachersController < ApplicationController
+  load_and_authorize_resource
+
   before_action :set_teacher, only: %i[ show edit update destroy ]
-  before_action :authenticate_admin!, except: %i[ index show]
-  
+  before_action :authenticate_user!
+
   def index
     @teachers = Teacher.all
   end

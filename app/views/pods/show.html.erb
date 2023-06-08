@@ -1,15 +1,6 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @pod %>
-
 <div>
-  <%= link_to "Back to pods", pods_path %><br>
-
-
-  <%if admin_signed_in?%>
-  
-  <%= link_to "Edit this pod", edit_pod_path(@pod) %> <BR>
-
-  <%= button_to "Destroy this pod", @pod, method: :delete %>
-  <% end %>
-</div>
+  <%= link_to "All pods", pods_path %>
+  </div><br><br>
+<%= render @pod %>

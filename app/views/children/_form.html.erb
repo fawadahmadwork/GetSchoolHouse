@@ -24,10 +24,7 @@
   <div>
     <%= form.label :grade, style: "display: block" %>
      <%= form.select :grade, options_for_select((1..5).map { |n| [n.ordinalize, n] }) %>
-  </div>
-
-  
-
+  </div><br>
   <div>
     <%= form.submit %>
   </div>
