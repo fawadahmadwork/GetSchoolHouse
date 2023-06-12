@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
 def index
-    end
+    @pods = Pod.all
+end
 
 end
 

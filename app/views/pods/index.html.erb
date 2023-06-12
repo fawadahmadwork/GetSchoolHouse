@@ -1,12 +1,17 @@
 <p style="color: green"><%= notice %></p>
+<%= form_tag(pods_path, method: :get, class: "search-form") do %>
+  <%= text_field_tag(:search, params[:search], placeholder: "Search by name, address, or grade") %>
+  <%= submit_tag("Search") %>
+<% end %>
+<div id="pods">
 
 <h1>Pods</h1>
 
-<div id="pods">
-  <% @pods.each do |pod| %>
+<% @pods.each do |pod| %>
     <%= render pod %>
     <p>
       <%= link_to "Show this pod", pod %>
     </p>
+  
   <% end %>
 </div>

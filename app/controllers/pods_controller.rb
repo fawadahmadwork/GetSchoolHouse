@@ -1,14 +1,20 @@
 class PodsController < ApplicationController
   load_and_authorize_resource
-
   before_action :set_pod, only: %i[ show edit update destroy ]
-  
-  
-  
-
   def index
+
     @pods = Pod.all
-  end
+    @pods = Pod.where("name LIKE ? OR address LIKE ? OR grade LIKE ?",
+      "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%")
+    # if params[:search].present?
+    #     @searched_pods = Pod.where("name LIKE ? OR address LIKE ? OR grade LIKE ?",
+    #                                "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%")
+    #      @pods = Pod.where.not(id: @searched_pods.ids)
+    #    else
+    #      @searched_pods = []
+    #     @pods = Pod.all
+    #    end
+    end
 
   
   def show
