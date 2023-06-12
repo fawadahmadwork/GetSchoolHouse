@@ -7,6 +7,7 @@ We are here to serve you with <strong>"Get School House"</strong> micro school s
 <h2>Find pods for studying Near to your home</h2>
 <h2>'Be Carefull'  'Be healthy' 'Be Safe'</h2>
 </div>
+
 <%= form_tag(pods_path, method: :get, class: "search-form") do %>
   <%= text_field_tag(:search, params[:search], placeholder: "Search by name, address, or grade") %>
   <%= submit_tag("Search") %>
@@ -18,11 +19,14 @@ We are here to serve you with <strong>"Get School House"</strong> micro school s
 <h1>All Pods</h1>
 
 <ul>
+<%= paginate @pods %>
   <% @pods.each do |pod| %>
+  <% if pod.active?%>
     <%= render pod %>
     <p>
       <%= link_to "Show this pod", pod %>
     </p>
+  <% end %>
   <% end %>
 </ul>
 

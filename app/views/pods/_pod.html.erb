@@ -14,4 +14,16 @@
     <%= pod.grade %>
   </p>
 
+  <% if pod.teacher.present? %>
+    <p>
+      <strong>Assigned Teacher:</strong>
+      <% if user_signed_in?%>
+       <%= link_to pod.teacher.name, teacher_path(pod.teacher) %>
+      <% else %>
+      <%= pod.teacher.name %>
+     </p>
+  <% end %>
+  <% end %>
+
+
 </div>

@@ -1,23 +1,27 @@
 ActiveAdmin.register Pod do
-
-  # See permitted parameters documentation:
-  # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-  #
-  # Uncomment all parameters which should be permitted for assignment
-  #
-  # permit_params :name, :address, :grade
-  #
-  # or
-  # validates :grade, numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 5 }
-
-
-  
-  
-  
+  index do
+    selectable_column
+    id_column
+    column :name
+    column :address
+    column :grade
+    column :teacher
+    column :status do |pod|
+      status_tag pod.active? ? 'Active' : 'Inactive', class: pod.active? ? 'status_tag_active' : 'status_tag_inactive'
+    end
+    actions
+  end
+  form do |f|
+    f.inputs do
+      f.input :name
+      f.input :address
+      f.input :grade
+      f.input :teacher, as: :select, collection: Teacher.where(grade: f.object.grade)
+    end
+    f.actions
+  end
   permit_params do
     permitted = [:name, :address, :grade, :status, :teacher_id]
-    
-    # permitted << :other if params[:action] == 'create' && current_user.admin?
-    # permitted
   end
 end
+
