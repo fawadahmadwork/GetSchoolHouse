@@ -1,6 +1,31 @@
 <p style="color: green"><%= notice %></p>
 
+  <%= link_to "All pods", pods_path %><br><br>
 <div>
 <%= render @pod %>
-  <%= link_to "All pods", pods_path %>
+
+<% if current_user %>
+<%= form_with(model: @pod_request, url: pod_requests_path, method: :post) do |form| %>
+  <%= form.hidden_field :pod_id, value: @pod.id %>
+
+  <%= form.label :child_id, 'Select Child' %>
+ <%= form.collection_select(:child_id, current_user.children.where(grade: @pod.grade), :id, :name, prompt: 'Select a Child') %>
+ <%= form.submit 'Apply for Pod' %>
+<% end %>
+<% else%>
+<p>please sign in  to apply for this pod</p>
+<% end%>
+
+<% if @children.any? %>
+  <h2>Children:</h2>
+  <% @children.each do |child| %>
+    <p>Name: <%= child.name %></p>
+    
+  <% end %>
+<% else %>
+  <p>No children found for this pod.</p>
+<% end %>
+
+
+
   </div><br>

@@ -3,6 +3,16 @@
 <%= link_to "My Children", children_path %><br><br>
 <%= render @child %>
 
+<% if @pod_requests.any? %>
+  <h3>Pod Requests:</h3>
+  <% @pod_requests.each do |pod_request| %>
+    <p>Pod: <%= pod_request.pod.name %></p>
+    <p>Status: <%= pod_request.status %></p>
+    <!-- Display additional pod request details -->
+  <% end %>
+<% else %>
+  <p>No pod requests found for this child.</p>
+<% end %>
 <div>
   <%= link_to "Edit This Child", edit_child_path(@child) %><br><br>
   <%= button_to "Destroy This Child", @child, method: :delete %>

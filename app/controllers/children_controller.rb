@@ -8,6 +8,7 @@ class ChildrenController < ApplicationController
   end
 
   def show
+    @pod_requests = @child.pod_requests.order(status: :desc)
   end
 
   def new

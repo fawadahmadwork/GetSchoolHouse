@@ -10,7 +10,8 @@ class PodsController < ApplicationController
 
   
   def show
-
+    @pod_request = PodRequest.new
+    @children = @pod.children
   end
 
   

@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Pod requests</h1>
+
+<div id="pod_requests">
+  <% @pod_requests.each do |pod_request| %>
+    <%= render pod_request %>
+    <p>
+      <%= link_to "Show this pod request", pod_request %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New pod request", new_pod_request_path %>
