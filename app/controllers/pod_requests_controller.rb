@@ -10,9 +10,7 @@ class PodRequestsController < InheritedResources::Base
     end
   end
 
-  
-
-private
+ private
 
     def pod_request_params
       params.require(:pod_request).permit(:child_id, :pod_id, :status)

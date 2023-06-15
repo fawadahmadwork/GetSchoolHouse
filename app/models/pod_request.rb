@@ -4,5 +4,7 @@ class PodRequest < ApplicationRecord
   scope :pending, -> { where(status: 'pending') }
   scope :canceled, -> { where(status: 'canceled') }
   scope :approved, -> { where(status: 'approved') }
-   
+  def pending?
+    status == 'pending'
+  end
 end
