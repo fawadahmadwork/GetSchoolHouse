@@ -19,8 +19,7 @@ We are here to serve you with <strong>"Get School House"</strong> micro school s
 <h1>All Pods</h1>
 
 <ul>
-<%= paginate @pods %>
-  <% @pods.each do |pod| %>
+<% @pods.each do |pod| %>
   <% if pod.active?%>
     <%= render pod %>
     <p>

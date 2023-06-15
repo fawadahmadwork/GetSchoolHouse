@@ -17,18 +17,21 @@ ActiveAdmin.register PodRequest do
     end
   end
 
-  member_action :approve, method: :put do
-    pod_request = PodRequest.find(params[:id])
+member_action :approve, method: :put do
+  pod_request = PodRequest.find(params[:id])
+
+  if pod_request.child.validate_approved_pod_request_count
+    redirect_to admin_pod_request_path(pod_request), alert: 'Child already has an approved pod request'
+  else
     pod_request.update(status: 'approved')
     redirect_to admin_pod_requests_path, notice: "Pod Request has been approved."
   end
+end
 
+  
   member_action :cancel, method: :put do
     pod_request = PodRequest.find(params[:id])
     pod_request.update(status: 'canceled')
     redirect_to admin_pod_requests_path, notice: "Pod Request has been canceled."
   end
-
-
-  
-end
+    end
