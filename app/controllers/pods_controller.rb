@@ -1,5 +1,5 @@
 class PodsController < ApplicationController
-  load_and_authorize_resource
+  #  load_and_authorize_resource
   before_action :set_pod, only: %i[ show edit update destroy ]
   def index
    @pods = Pod.includes(:teacher).where.not(teachers: { id: nil })

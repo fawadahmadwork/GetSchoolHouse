@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
-  resources :pod_requests
   root "home#index"
+  get "home/index"
+  devise_for :users
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  resources :teachers
-  resources :pods
-  devise_for :users
-  get "home/index"
   resources :children
+  resources :pods
+  resources :teachers
+  resources :pod_requests
 end
