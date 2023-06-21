@@ -9,7 +9,10 @@ class PodRequest < ApplicationRecord
   def pending?
     status == 'pending'
   end
-  private
+  def canceled?
+    status == 'canceled'
+  end
+  
   
   def validate_approved_pod_request
     if child.approved_pod_request && child.approved_pod_request != self
@@ -19,5 +22,18 @@ class PodRequest < ApplicationRecord
   
   def status_changed_to_approved?
     status == 'approved' && status_changed?
+  end
+
+  def send_status_update_email
+    template = case status
+               when 'approved'
+                 :approved_notification
+               when 'canceled'
+                 :canceled_notification
+               else
+                 return
+               end
+
+    PodRequestMailer.with(pod_request: self).send(template).deliver_now
   end
 end

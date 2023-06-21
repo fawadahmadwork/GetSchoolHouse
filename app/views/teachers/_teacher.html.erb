@@ -15,8 +15,8 @@
   </p>
   <p>
     <strong>Assinged Pod:</strong>
-    <% if  teacher.pod.presence %>
-    <%= teacher.pod.name %>
+    <% if  teacher.pod.present? %>
+    <%=  teacher.pod.name %>
     <% else%>
     Not Assigned
   </p>

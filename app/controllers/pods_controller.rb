@@ -1,5 +1,5 @@
 class PodsController < ApplicationController
-  #  load_and_authorize_resource
+    load_and_authorize_resource
   before_action :set_pod, only: %i[ show edit update destroy ]
   def index
    @pods = Pod.includes(:teacher).where.not(teachers: { id: nil })
@@ -10,6 +10,7 @@ class PodsController < ApplicationController
 
   
   def show
+    @comment = @pod.comments.build
     @pod_request = PodRequest.new
     @approved_children = @pod.children.joins(:pod_requests).where(pod_requests: { status: 'approved' }).distinct
   end

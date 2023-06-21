@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_19_085607) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_20_101612) do
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
@@ -45,6 +45,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_19_085607) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_children_on_user_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text "commenter"
+    t.text "body"
+    t.integer "pod_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pod_id"], name: "index_comments_on_pod_id"
   end
 
   create_table "pod_requests", force: :cascade do |t|
@@ -94,6 +103,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_19_085607) do
   end
 
   add_foreign_key "children", "users"
+  add_foreign_key "comments", "pods"
   add_foreign_key "pod_requests", "children"
   add_foreign_key "pod_requests", "pods"
   add_foreign_key "pods", "teachers"
