@@ -1,0 +1,14 @@
+<h2>Reviews</h2>
+<% @pod.reviews.each do |review| %>
+<% if review.persisted? %>
+  <p>
+    <strong>Name:</strong>
+    <%= review.name %>
+  </p>
+  <p>
+    <strong>review:</strong>
+    <%= review.review %>
+  </p>
+<% end %>
+<% end %>
+  

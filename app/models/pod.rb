@@ -1,5 +1,5 @@
 class Pod < ApplicationRecord
-    has_many :comments
+    has_many :reviews
     has_many :pod_requests
     has_many :children, through: :pod_requests
 

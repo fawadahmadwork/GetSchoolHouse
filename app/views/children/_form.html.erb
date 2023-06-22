@@ -18,7 +18,9 @@
 
   <div>
     <%= form.label :age, style: "display: block" %>
-    <%= form.number_field :age, placeholder: 'select from 6 to 13' %>
+  
+  <%= form.select :age, (6..12).to_a %>
+   
   </div>
 
   <div>

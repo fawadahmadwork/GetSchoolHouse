@@ -27,19 +27,28 @@ ActiveAdmin.register Pod do
       row :address
       row :grade
       row :teacher
-      # other attributes of the Pod
+      
+      panel 'reviews' do
+        table_for pod.reviews do
+          column :name
+          column :review
+         
+        end
+      
+      end
     
-      # Custom panel to display children
+      
       panel 'Childrens in pod' do
         table_for pod.children do
           column :name
           column :age
           column :grade
-          # Add more columns as needed
+         
         end
       end
     end
   end
+  
   permit_params do
     permitted = [:name, :address, :grade, :status, :teacher_id]
   end

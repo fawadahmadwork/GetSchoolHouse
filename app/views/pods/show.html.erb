@@ -4,20 +4,21 @@
 <%= link_to "All pods", pods_path %><br><br>
 <div>
 <%= render @pod %>
-<%= render "comments/comment" %>
+
+<%= render "reviews/review" %>
 <% if user_signed_in?%>
   
 <% if current_user.children.exists?(id: @pod.child_ids)%>
 
 
-<% if @pod.pod_requests.exists?(status: 'approved') %>
+<% if current_user.children.exists?(id: @pod.approved_children.pluck(:id)) %>
 
-<%= render "comments/comment_form" %>
+<%= render "reviews/review_form" %>
 <%end%>
 <br>
 <strong> Already applied for this Pod </strong>
 <%else%>
- <%= render "apply_pod"%>
+ <br><%= render "apply_pod"%>
 <%end%>
  
  <%else%>
@@ -25,5 +26,5 @@
 
 <%end%> 
 
-</div>
+</div><br>
 <%= render "children_count"%>

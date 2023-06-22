@@ -10,7 +10,7 @@ class PodsController < ApplicationController
 
   
   def show
-    @comment = @pod.comments.build
+    @review = @pod.reviews.build
     @pod_request = PodRequest.new
     @approved_children = @pod.children.joins(:pod_requests).where(pod_requests: { status: 'approved' }).distinct
   end

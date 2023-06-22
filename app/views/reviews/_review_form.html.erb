@@ -1,0 +1,18 @@
+<%= form_with model: [@pod, @review], url: pod_reviews_path(@pod) do |form| %>
+  <%= form.hidden_field :child_id, value: @child_id %>
+  
+  <div class="field">
+    <%= form.label :name %>
+     <%= form.text_area :name %>
+  
+  </div>
+
+  <div class="field">
+    <%= form.label :review %>
+    <%= form.text_area :review %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

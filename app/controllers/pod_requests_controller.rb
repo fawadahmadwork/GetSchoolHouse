@@ -1,15 +1,15 @@
 class PodRequestsController < InheritedResources::Base
   def create
     @pod_request = PodRequest.new(pod_request_params)
-    @pod_request.status = 'pending' # Set the initial status to 'pending'
-
+    @pod_request.status = 'pending'
     if @pod_request.save
       PodRequestMailer.user_notification(current_user, @pod_request).deliver_now
       PodRequestMailer.admin_notification(current_user, @pod_request).deliver_now
       
       redirect_to @pod_request.child, notice: 'Pod request was successfully created.'
     else
-      render 'pods/show'
+      
+      redirect_to @pod_request.child, notice: 'Child has aleardy requested for this pod.'
     end
   end
 

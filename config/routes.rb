@@ -5,9 +5,9 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   resources :children
-  resources :pods do
-    resources :comments
-  end
   resources :teachers
   resources :pod_requests
+  resources :pods do
+    resources :reviews
+  end
 end
