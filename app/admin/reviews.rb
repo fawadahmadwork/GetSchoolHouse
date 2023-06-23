@@ -5,7 +5,7 @@ ActiveAdmin.register Review do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  # permit_params :name, :review, :pod_id
+   permit_params :name, :review, :pod_id
   #
   # or
   #

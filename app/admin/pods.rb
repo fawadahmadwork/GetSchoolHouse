@@ -6,6 +6,7 @@ ActiveAdmin.register Pod do
     column :address
     column :grade
     column :teacher
+    column :zip_code
     column :status do |pod|
       status_tag pod.active? ? 'Active' : 'Inactive', class: pod.active? ? 'status_tag_active' : 'status_tag_inactive'
     end
@@ -16,6 +17,8 @@ ActiveAdmin.register Pod do
       f.input :name
       f.input :address
       f.input :grade
+      f.input :zip_code
+
       f.input :teacher, as: :select, collection: Teacher.where(grade: f.object.grade)
     end
     f.actions
@@ -26,7 +29,8 @@ ActiveAdmin.register Pod do
       row :name
       row :address
       row :grade
-      row :teacher
+      row :grade
+      row :zip_code
       
       panel 'reviews' do
         table_for pod.reviews do
@@ -50,7 +54,7 @@ ActiveAdmin.register Pod do
   end
   
   permit_params do
-    permitted = [:name, :address, :grade, :status, :teacher_id]
+    permitted = [:name, :address, :grade, :status, :zip_code,  :teacher_id]
   end
 end
 

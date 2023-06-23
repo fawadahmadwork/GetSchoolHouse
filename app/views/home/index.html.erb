@@ -8,10 +8,7 @@ We are here to serve you with <strong>"Get School House"</strong> micro school s
 <h2>'Be Carefull'  'Be healthy' 'Be Safe'</h2>
 </div>
 
-<%= form_tag(pods_path, method: :get, class: "search-form") do %>
-  <%= text_field_tag(:search, params[:search], placeholder: "Search by name, address, or grade") %>
-  <%= submit_tag("Search") %>
-<% end %>
+<%= render "pods/search"%>
 
 
 

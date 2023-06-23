@@ -9,5 +9,11 @@ Rails.application.routes.draw do
   resources :pod_requests
   resources :pods do
     resources :reviews
+    namespace :api do
+      namespace :v1 do
+        resources :pods, only: [:index]
+      end
+    end
+    
   end
 end
