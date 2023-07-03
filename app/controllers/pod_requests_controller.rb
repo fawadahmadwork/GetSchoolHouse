@@ -8,7 +8,6 @@ class PodRequestsController < InheritedResources::Base
       
       redirect_to @pod_request.child, notice: 'Pod request was successfully created.'
     else
-      
       redirect_to @pod_request.child, notice: 'Child has aleardy requested for this pod.'
     end
   end

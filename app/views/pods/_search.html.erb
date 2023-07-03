@@ -1,27 +1,5 @@
+
 <%= form_tag(pods_path, method: :get, class: "search-form") do %>
-  <%= hidden_field_tag(:zip_code, params[:zip_code]) %>
-  <%= hidden_field_tag(:name, params[:name]) %>
-  <%= hidden_field_tag(:grade, params[:grade]) %>
-  <%= hidden_field_tag(:address, params[:address]) %>
-  
-  <div class="field">
-    <%= label_tag :name, "Name" %>
-    <%= text_field_tag :name, params[:name], placeholder: "Enter Name" %>
-  </div>
-  
-  <div class="field">
-    <%= label_tag :grade, "Grade" %>
-    <%= text_field_tag :grade, params[:grade], placeholder: "Enter Grade" %>
-  </div>
-  
-  <div class="field">
-    <%= label_tag :address, "Address" %>
-    <%= text_field_tag :address, params[:address], placeholder: "Enter Address" %>
-  </div>
-  <div class="field">
-    <%= label_tag :zip_code, "Zip code" %>
-    <%= text_field_tag :zip_code, params[:zip_code], placeholder: "Enter Zip code" %>
-  </div><br>
-  
+  <%= text_field_tag(:search, params[:search], placeholder: "Search by name, address, zip_code, or grade") %>
   <%= submit_tag("Search") %>
 <% end %>

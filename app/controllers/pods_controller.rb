@@ -4,29 +4,9 @@ class PodsController < ApplicationController
   def index
     @pods = Pod.all
 
-    # Filter by zip code
-    if params[:zip_code].present?
-      @pods = @pods.where(zip_code: params[:zip_code])
-    end
-
-    # Filter by grade
-    if params[:grade].present?
-      @pods = @pods.where(grade: params[:grade])
-    end
-
-    # Filter by name
-    if params[:name].present?
-      @pods = @pods.where("name LIKE ?", "%#{params[:name]}%")
-    end
-
-    # Filter by address
-    if params[:address].present?
-      @pods = @pods.where("address LIKE ?", "%#{params[:address]}%")
-    end
+    @pods = Pod.where("name LIKE ? OR address LIKE ? OR grade LIKE ? OR zip_code LIKE ?",
+      "%#{params[:search]}%", "%#{params[:search]}%" , "%#{params[:search]}%" , "%#{params[:search]}%")
   end
-
-
-  
   def show
     @review = @pod.reviews.build
     @pod_request = PodRequest.new

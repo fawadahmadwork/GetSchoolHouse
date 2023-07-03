@@ -4,5 +4,6 @@
 <%= link_to "All Teachers", teachers_path %>
   </div> <br><br>
 <%= render @teacher %>
- 
+ <%if @teacher.pod.present? %>
 <%= link_to "Back to Pod", @teacher.pod %>
+<%end%>

@@ -57,7 +57,7 @@ def correct_user
    def set_child
       @child = Child.find(params[:id])
     end
-def child_params
-      params.require(:child).permit(:name, :age, :grade, :user_id)
+   def child_params
+      params.require(:child).permit(:name, :age, :grade, :user_id, :gender, :address, :parent_name, :contact)
     end
 end

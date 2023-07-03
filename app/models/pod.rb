@@ -7,6 +7,7 @@ validates :grade, numericality: { only_integer: true, greater_than_or_equal_to: 
 validates :teacher, presence: true, if: :active?
 belongs_to :teacher, optional: true
 validates :teacher_id, uniqueness:  { allow_nil: true }
+validates :zip_code, presence: true, format: { with: /\A\d{5}\z/, message: "should be in the format: 12345" }
 
 def active?
     teacher.present?

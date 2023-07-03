@@ -10,7 +10,7 @@ ActiveAdmin.register Child do
   # or
   #
   permit_params do
-    permitted = [:name, :age, :grade, :user_id]
+    permitted = [:name, :age, :grade, :gender, :address, :user_id]
     # permitted << :other if params[:action] == 'create' && current_user.admin?
     # permitted
   end
