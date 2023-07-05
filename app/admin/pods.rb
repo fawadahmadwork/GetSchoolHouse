@@ -29,32 +29,27 @@ ActiveAdmin.register Pod do
       row :name
       row :address
       row :grade
-      row :grade
       row :zip_code
-      
+      row :teacher
+
       panel 'reviews' do
         table_for pod.reviews do
           column :name
           column :review
-         
         end
-      
       end
-    
-      
+
       panel 'Childrens in pod' do
         table_for pod.children do
           column :name
           column :age
           column :grade
-         
         end
       end
     end
   end
-  
+
   permit_params do
-    permitted = [:name, :address, :grade, :status, :zip_code,  :teacher_id]
+    permitted = %i[name address grade status zip_code teacher_id]
   end
 end
-

@@ -16,21 +16,26 @@
     <%= form.text_field :name %>
   </div>
   <div>
-    <%= form.label :Gender, style: "display: block" %>
-    <%= form.text_field :gender %>
-  </div>
-  <div>
     <%= form.label :Address, style: "display: block" %>
-    <%= form.text_field :address %>
-  </div>
+     <%= form.text_field :address, value: current_user.address %>
+</div>
   <div>
     <%= form.label :Parent_Name, style: "display: block" %>
-    <%= form.text_field :parent_name %>
+    <%= form.text_field :parent_name, value: current_user.name,  readonly: true %>
   </div>
   <div>
-    <%= form.label :contact, style: "display: block" %>
-    <%= form.text_field :contact %>
+    <%= form.label :phone_number, style: "display: block" %>
+    <%= form.text_field :phone_number, value: current_user.phone_number, readonly: true%>
   </div>
+  <div>
+    <%= form.label :enrollment_date, style: "display: block" %>
+    <%= form.text_field :enrollment_date, value: Time.now, readonly: true %>
+  </div>
+ <div>
+  <%= form.label :gender, style: "display: block" %>
+  <%= form.select :gender, [['Male', 'male'], ['Female', 'female']] %>
+</div>
+
 
   <div>
     <%= form.label :age, style: "display: block" %>

@@ -44,10 +44,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_03_080737) do
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "phone_number"
+    t.date "enrollment_date"
     t.string "gender"
     t.string "parent_name"
     t.string "address"
-    t.integer "contact"
     t.index ["user_id"], name: "index_children_on_user_id"
   end
 
@@ -68,7 +69,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_03_080737) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "teacher_id"
-    t.string "zip_code"
+    t.integer "zip_code"
     t.index ["teacher_id"], name: "index_pods_on_teacher_id"
   end
 
@@ -102,6 +103,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_03_080737) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "authentication_token"
+    t.string "name"
+    t.integer "phone_number"
+    t.string "address"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
