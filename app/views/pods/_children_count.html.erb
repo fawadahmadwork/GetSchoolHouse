@@ -2,13 +2,8 @@
    
   <h1> Pod is full</h1>
   <% elsif %>
-  <h2>Children in this Pod:
- <%= @approved_children.count %></h2>
+  <h4>Children in this Pod: <%= @approved_children.count %></h4>
   <p>REMAINING children: <%= 15-@approved_children.count %></p>
-  <% @approved_children.each do |child| %>
-    <p>Name: <%= child.name %></p>
-
-<% end %>
-<% else %>
+  <% else %>
   <p>No children found for this pod.</p>
 <% end %>

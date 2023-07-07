@@ -5,7 +5,10 @@
 <%= link_to "New child", new_child_path %><br><br>
 <div id="children">
   <% @children.each do |child| %>
-    <%= render child %>
+   <p>
+    <strong>Name:</strong>
+    <%= child.name %>
+  </p>
     <p>
       <%= link_to "Show this child", child %>
     </p>

@@ -4,7 +4,14 @@
 
 <div id="teachers">
   <% @teachers.each do |teacher| %>
-    <%= render teacher %>
+     <p>
+    <strong>Name:</strong>
+    <%= teacher.name %>
+  </p>
+  <p>
+    <strong>Grade:</strong>
+    <%= teacher.grade %>
+  </p>
     <p>
       <%= link_to "Show this teacher", teacher %>
     </p>

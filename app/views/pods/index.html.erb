@@ -3,7 +3,19 @@
 <h1>Pods</h1>
 <% @pods.each do |pod| %>
 <% if pod.active? %>
-    <%= render pod %>
+    <%
+=begin%>
+ <%= render pod %> 
+<%
+=end%>
+ <p>
+    <strong>Name:</strong>
+    <%= pod.name %>
+  </p>
+   <p>
+    <strong>Grade:</strong>
+    <%= pod.grade %>
+  </p>
     <p>
       <%= link_to "Show this pod", pod %>
       </p>

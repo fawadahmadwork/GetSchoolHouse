@@ -4,27 +4,14 @@
 <%= link_to "All pods", pods_path %><br><br>
 <div>
 <%= render @pod %>
-
-<%= render "reviews/review" %>
-<% if user_signed_in?%>
-  
-<% if current_user.children.exists?(id: @pod.child_ids)%>
-
-
-<% if current_user.children.exists?(id: @pod.approved_children.pluck(:id)) %>
-
-<%= render "reviews/review_form" %>
-<%end%>
-<br>
-<strong> Already applied for this Pod </strong>
-<%else%>
- <br><%= render "apply_pod"%>
-<%end%>
- 
- <%else%>
- <h3>please sign in  to apply for this pod</h3>  
-
-<%end%> 
-
-</div><br>
 <%= render "children_count"%>
+<% if user_signed_in?%>
+<%= render "apply_pod"%>
+  <%else%>
+ <h3>please sign in  to apply for this pod</h3>  
+</div>
+<%end%> 
+<%= render "reviews/review" %>
+  <% if user_signed_in? && current_user.children.exists?(id: @pod.approved_children.pluck(:id)) %>
+  <%= render "reviews/review_form" %>
+<%end%>

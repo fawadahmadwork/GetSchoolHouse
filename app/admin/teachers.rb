@@ -3,24 +3,30 @@ ActiveAdmin.register Teacher do
     selectable_column
     id_column
     column :name
-    column :qualififcation
+    column :gender
     column :grade
     column :pod
+    column :qualififcation
+    column :email
+    column :languages_known
+    column :avatar
+    column :experince
     actions
   end
-  
-  # See permitted parameters documentation:
-  # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-  #
-  # Uncomment all parameters which should be permitted for assignment
-  #
-  # permit_params :name, :qualififcation, :grade
-  # 
-  # or
-  # has_one :pod
+  form do |f|
+    f.inputs do
+      f.input :name
+      f.input :gender, as: :select, collection: [%w[Male Male], %w[Female Female]]
+      f.input :grade, as: :select, collection: (1..5).map { |n| [n.ordinalize, n] }
+      f.input :qualififcation
+      f.input :email
+      f.input :experince
+      f.input :languages_known
+      f.input :avatar
+    end
+    f.actions
+  end
   permit_params do
-    permitted = [:name, :qualififcation, :grade]
-    #   permitted << :other if params[:action] == 'create' && current_user.admin?
-    #   permitted
+    permitted = %i[name qualififcation grade gender email languages_known avatar description experince]
   end
-  end
+end

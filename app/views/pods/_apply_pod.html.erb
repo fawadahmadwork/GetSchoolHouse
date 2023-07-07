@@ -1,9 +1,10 @@
 <% if current_user %>
-<%= form_with(model: @pod_request, url: pod_requests_path, method: :post) do |form| %>
-  <%= form.hidden_field :pod_id, value: @pod.id %>
-  <%= form.label :child_id, 'Select Child' %>
- <%= form.collection_select(:child_id, current_user.children.where(grade: @pod.grade), :id, :name, prompt: 'Select a Child') %>
- <%= form.submit 'Apply for Pod' %>
+  <%= form_with(model: @pod_request, url: pod_requests_path, method: :post) do |form| %>
+    <%= form.hidden_field :pod_id, value: @pod.id %>
+    <%= form.label :child_id, 'Select Child' %>
+    <% assigned_child_ids = @pod.children.pluck(:id) %>
+    <%= form.collection_select(:child_id, current_user.children.where(grade: @pod.grade).where.not(id: assigned_child_ids), :id, :name, prompt: 'Select a Child') %>
+    <%= form.submit 'Apply for Pod' %>
+  <% end %>
 <% end %>
-<% end%>
 <br>
