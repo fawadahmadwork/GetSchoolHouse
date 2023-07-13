@@ -52,6 +52,7 @@
 # General
 --------------------------------------------------------------*/
 body {
+  font-size: large;
   color: var(--color-default);
   background-color: var(--color-background);
   font-family: var(--font-default);
@@ -169,13 +170,18 @@ section {
 # Global Header
 --------------------------------------------------------------*/
 .header {
+  
   --color-background: #ffffff;
   --color-inverse: #ffffff;
   color: var(--color-default);
   background-color: var(--color-background);
-  padding: 15px 0;
+  padding: 15px 0 0 0;
   transition: all 0.5s;
   z-index: 997;
+   margin-bottom: 1000px;
+}
+.header a {
+  text-decoration: none;
 }
 
 .header .logo img {
@@ -187,7 +193,7 @@ section {
   font-size: 24px;
   margin: 0;
   font-weight: 600;
-  color: var(--color-secondary);
+  color: red;
 }
 
 .header .logo span {
@@ -235,7 +241,7 @@ section {
 .scrolled .header {
   --color-background: #ffffff;
   --color-secondary: #444444;
-  --color-nav: #444444;
+  --color-nav:black;
   --color-nav-hover: #e84545;
   box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.1);
 }
@@ -266,7 +272,7 @@ section {
 .index-page.scrolled .header {
   --color-background: #ffffff;
   --color-secondary: #444444;
-  --color-nav: #444444;
+  --color-nav: #000000;
   --color-nav-hover: #d83535;
 }
 
@@ -834,18 +840,20 @@ section {
 }
 
 .hero .container {
+  margin-top: 0;
   position: relative;
   z-index: 3;
 }
 
 .hero h2 {
   margin: 0;
-  font-size: 44px;
-  font-weight: 700;
+  font-size: 42px;
+  font-weight: 500;
+  color:#000000;
 }
 
 .hero p {
-  color: rgba(var(--color-default-rgb), 0.8);
+  color: yellow;
   margin: 5px 0 0 0;
   font-size: 20px;
 }
@@ -871,8 +879,8 @@ section {
 .hero .sign-up-form input[type=submit] {
   box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.2);
   background-color: var(--color-primary);
-  border-color: var(--color-primary);
   padding: 8px 20px 10px 20px;
+  margin-left: 20px;
   border-radius: 7px;
   color: var(--color-inverse);
 }
@@ -2891,6 +2899,7 @@ section {
   border-radius: 4px;
   padding: 10px 10px;
   font-size: 14px;
+
   height: 120px;
 }
 
@@ -2914,4 +2923,55 @@ section {
 .blog-details .comments .reply-form .btn-primary:hover {
   color: var(--color-inverse);
   background-color: rgba(var(--color-primary-rgb), 0.8);
+}
+.text-color {
+  color:#df1529;
+}
+.margin-header {
+  margin-top: 80px;
+}
+
+.bg-img {
+  background-image: url('child.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.full {
+  width: 100%;
+}
+
+
+.pod_hero{
+  --color-default: #ffffff;
+  --color-default-rgb: 255, 255, 255;
+  --color-background: #000000;
+  --color-background-rgb: 0, 0, 0;
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  padding: 0 0 80px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pod_hero img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  z-index: 1;
+}
+.pod_hero:before {
+  content: "";
+  background: rgba(var(--color-background-rgb), 0.5);
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+.pod_hero .container {
+  position: relative;
+  z-index: 3;
 }

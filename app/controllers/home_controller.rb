@@ -1,8 +1,5 @@
 class HomeController < ApplicationController
-def index
+  def index
     @pods = Pod.includes(:teacher).where.not(teachers: { id: nil })
-   
+  end
 end
-
-end
-

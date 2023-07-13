@@ -1,95 +1,35 @@
-
 <body class="index-page" data-bs-spy="scroll" data-bs-target="#navmenu">
-    <!-- ======= Header ======= -->
-    <header id="header" class="header fixed-top d-flex align-items-center">
-      <div
-        class="container-fluid d-flex align-items-center justify-content-between"
-      >
-        <a
-          href="index.html"
-          class="logo d-flex align-items-center me-auto me-xl-0"
-        >
-          <!-- Uncomment the line below if you also wish to use an image logo -->
-          <!-- <img src="assets/img/logo.png" alt=""> -->
-          <h1>Append</h1>
-          <span>.</span>
-        </a>
-
-        <!-- Nav Menu -->
-        <nav id="navmenu" class="navmenu">
-          <ul>
-            <li><a href="index.html#hero" class="active">Home</a></li>
-            <li><a href="index.html#about">About</a></li>
-            <li><a href="index.html#services">Services</a></li>
-            <li><a href="index.html#portfolio">Portfolio</a></li>
-            <li><a href="index.html#team">Team</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li class="dropdown has-dropdown">
-              <a href="#"
-                ><span>Dropdown</span> <i class="bi bi-chevron-down"></i
-              ></a>
-              <ul class="dd-box-shadow">
-                <li><a href="#">Dropdown 1</a></li>
-                <li class="dropdown has-dropdown">
-                  <a href="#"
-                    ><span>Deep Dropdown</span>
-                    <i class="bi bi-chevron-down"></i
-                  ></a>
-                  <ul class="dd-box-shadow">
-                    <li><a href="#">Deep Dropdown 1</a></li>
-                    <li><a href="#">Deep Dropdown 2</a></li>
-                    <li><a href="#">Deep Dropdown 3</a></li>
-                    <li><a href="#">Deep Dropdown 4</a></li>
-                    <li><a href="#">Deep Dropdown 5</a></li>
-                  </ul>
-                </li>
-                <li><a href="#">Dropdown 2</a></li>
-                <li><a href="#">Dropdown 3</a></li>
-                <li><a href="#">Dropdown 4</a></li>
-              </ul>
-            </li>
-            <li><a href="index.html#contact">Contact</a></li>
-          </ul>
-
-          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-        </nav>
-        <!-- End Nav Menu -->
-
-        <a class="btn-getstarted" href="index.html#about">Get Started</a>
-      </div>
-    </header>
-    <!-- End Header -->
+    
 
     <main id="main">
       <!-- Hero Section - Home Page -->
       <section id="hero" class="hero">
-       <%= image_tag('hero-bg.jpg', alt: '', data: { aos: 'fade-in' }) %>
+       <%= image_tag('child2.jpg', alt: '', data: { aos: 'fade-in' }) %>
 
 
         <div class="container">
           <div class="row">
-            <div class="col-lg-10">
-              <h2 data-aos="fade-up" data-aos-delay="100">
-                Welcome to Our Website
+            <div class="col-lg-20">
+              <h2 style="color: red;" data-aos="fade-up" data-aos-delay="100"><strong>
+                "Get School House"</strong>
               </h2>
               <p data-aos="fade-up" data-aos-delay="200">
-                We are team of talented designers making websites with Bootstrap
+             Right place to secure your <strong>"Child's Future"</strong>
               </p>
+              <p> No need to worry about your child's acadmic session <br>
+We are here to serve you with <strong>"Get School House"</strong> micro school system</p>
+<p>Find pods for studying Near to your home</p>
+<h2><strong>'Be Carefull'  'Be healthy' 'Be Safe'</strong></h2>
             </div>
+
             <div class="col-lg-5">
-              <form
-                action="#"
-                class="sign-up-form d-flex"
-                data-aos="fade-up"
-                data-aos-delay="300"
-              >
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Enter email address"
-                />
-                <input type="submit" class="btn btn-primary" value="Sign up" />
-              </form>
+            <%= form_tag(pods_path, method: :get, class: "sign-up-form d-flex") do %>
+  <%= text_field_tag(:search, params[:search], placeholder: "Name, address, zip_code, or grade '1 to 5'", class: "form-control") %>
+  <%= submit_tag("Search", class: "btn btn-dark") %>
+<% end %>
+              
+                
+             
             </div>
           </div>
         </div>
@@ -1750,13 +1690,16 @@
     ></a>
 
     <!-- Preloader -->
-<div id="preloader">
+<%
+=begin%>
+ <div id="preloader"> 
+<%
+=end%>
       <div></div>
       <div></div>
       <div></div>
       <div></div>
     </div> 
-    <%= javascript_importmap_tags %>
-    <%= javascript_include_tag 'main' %>
+
 
   </body>
