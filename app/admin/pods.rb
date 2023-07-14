@@ -3,6 +3,7 @@ ActiveAdmin.register Pod do
     selectable_column
     id_column
     column :name
+    column :image_url
     column :address
     column :grade
     column :teacher
@@ -16,6 +17,7 @@ ActiveAdmin.register Pod do
     f.inputs do
       f.input :name
       f.input :address
+      f.input :image_url
       f.input :zip_code
       f.input :grade, as: :select, collection: (1..5).map { |n| [n.ordinalize, n] }
       f.input :teacher, as: :select, collection: Teacher.where(grade: f.object.grade)
@@ -51,6 +53,6 @@ ActiveAdmin.register Pod do
   end
 
   permit_params do
-    permitted = %i[name address grade status zip_code teacher_id]
+    permitted = %i[name image_url address grade status zip_code teacher_id]
   end
 end
