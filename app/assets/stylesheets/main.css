@@ -81,7 +81,8 @@ h6 {
 section {
   color: var(--color-default);
   background-color: var(--color-background);
-  padding: 60px 0;
+  padding: 0px;
+  margin: 0px;
   overflow: clip;
 }
 
@@ -175,10 +176,10 @@ section {
   --color-inverse: #ffffff;
   color: var(--color-default);
   background-color: var(--color-background);
-  padding: 15px 0 0 0;
+  padding: 0px;
+  margin :0px;
   transition: all 0.5s;
   z-index: 997;
-   margin-bottom: 1000px;
 }
 .header-container {
   clear: both;
@@ -824,7 +825,7 @@ section {
   width: 100%;
   min-height: 100vh;
   position: relative;
-  padding: 160px 0 80px 0;
+  padding:  0px ;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -859,13 +860,15 @@ section {
   margin: 0;
   font-size: 42px;
   font-weight: 500;
-  color:#000000;
+  color:#221414;
+  text-shadow: 2px 2px 4px #f2eded;
 }
 
 .hero p {
-  color: yellow;
+  color:#fcfcde;
   margin: 5px 0 0 0;
   font-size: 20px;
+  text-shadow: 2px 2px 4px #000;
 }
 
 .hero .sign-up-form {
@@ -2984,4 +2987,22 @@ section {
 .pod_hero .container {
   position: relative;
   z-index: 3;
+}
+.extra-red{
+   color: black;
+   font-size: 40px;
+   font-weight: 900;
+}
+.hero-carousel {
+  --color-default: #ffffff;
+  --color-default-rgb: 255, 255, 255;
+  --color-background: #000000;
+  --color-background-rgb: 0, 0, 0;
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  padding:  0px ;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

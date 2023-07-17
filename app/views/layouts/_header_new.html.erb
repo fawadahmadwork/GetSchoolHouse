@@ -9,14 +9,10 @@
 <%
 =end%>
   <% end %>
-
-
-
-        <!-- Nav Menu -->
         <nav class="navmenu" class="navmenu">
           <ul>
            <li><%= link_to"Home", root_path%></li>
-           <li><%= link_to"about", about_path%></li>
+           <li><%= link_to"About", about_path%></li>
 
             <li><%= link_to "Pods", pods_path%>
             </li>
@@ -68,7 +64,7 @@
 
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
-        <!-- End Nav Menu -->
+        
 <%= link_to "Sign out" , destroy_user_session_path , data: { "turbo-method": :delete } ,  class: "btn-getstarted" %>
       </div>
     </header>

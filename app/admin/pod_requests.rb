@@ -10,8 +10,8 @@ ActiveAdmin.register PodRequest do
     column :created_at
     actions defaults: true do |pod_request|
       if pod_request.pending?
-        (link_to 'Approve |', approve_admin_pod_request_path(pod_request), method: :put) +
-          (link_to ' Cancel', cancel_admin_pod_request_path(pod_request), method: :put)
+        (link_to ' Approve |', approve_admin_pod_request_path(pod_request), method: :put) +
+          (link_to '  | Cancel', cancel_admin_pod_request_path(pod_request), method: :put)
       elsif pod_request.canceled?
         (link_to 'Approve', approve_admin_pod_request_path(pod_request), method: :put)
       end

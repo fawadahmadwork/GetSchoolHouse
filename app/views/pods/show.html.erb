@@ -1,7 +1,6 @@
 <p style="color: green">
     <%= notice %>
 </p>
-<div class= "margin-header">
 <div class="margin-header" style="background-color: #f2f2f2">
 <%= link_to "All pods", pods_path %><br><br>
 <div>
@@ -17,3 +16,4 @@
   <% if user_signed_in? && current_user.children.exists?(id: @pod.approved_children.pluck(:id)) %>
   <%= render "reviews/review_form" %>
 <%end%>
+</div>

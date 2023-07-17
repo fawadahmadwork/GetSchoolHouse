@@ -1,0 +1,36 @@
+
+<div class="container-fluid mt-0" style="background-color: #dededc;">
+    <div class="row">
+      <div class="col-lg-12"><br>
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <% @pods.each_with_index do |pod, index| %>
+              <div class="carousel-item <%= 'active' if index.zero? %>">
+               <div class="carousel-caption d-none d-md-block">
+                    <h5 class="extra-red">Name : <%= pod.name %></h5>
+                    <h3 class="extra-red bold ">Grade : <%= pod.grade %></h3>
+                  </div>
+                <%= link_to pod_path(pod) do %>
+                  <% if pod.image_url.present?%>
+                    <%= image_tag pod.image_url, class: 'd-block w-100', alt: 'Pod Image' %>
+                  <% else %>
+                    <%= image_tag 'default.png', class: 'd-block w-100', alt: 'Default Image' %>
+                  <% end %>
+                 
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+

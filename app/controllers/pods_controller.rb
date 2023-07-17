@@ -2,16 +2,16 @@ class PodsController < ApplicationController
   load_and_authorize_resource
   before_action :set_pod, only: %i[show edit update destroy]
   def index
-    @pods = Pod.all
+    @pods = Pod.where.not(teacher_id: nil)
 
     return unless params[:search].present?
 
     search_term = params[:search]
     @pods = if search_term.length == 1 && search_term.to_i.between?(1, 5)
-              Pod.where(grade: search_term)
+              @pods.where(grade: search_term)
             else
-              Pod.where('name LIKE ? OR address LIKE ? OR zip_code LIKE ?',
-                        "%#{search_term}%", "%#{search_term}%", "%#{search_term}%")
+              @pods.where('name LIKE ? OR address LIKE ? OR zip_code LIKE ?',
+                          "%#{search_term}%", "%#{search_term}%", "%#{search_term}%")
             end
   end
 
