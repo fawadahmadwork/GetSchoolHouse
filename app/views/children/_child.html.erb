@@ -1,48 +1,46 @@
-<div id="<%= dom_id child %>">
-  <p>
-    <strong>Name:</strong>
-    <%= child.name %>
-  </p>
-  <p>
-    <strong>Gender:</strong>
-    <%= child.gender %>
-  </p>
-  <p>
-    <strong>Age:</strong>
-    <%= child.age %>
-  </p>
-  <p>
-  <p>
-    <strong>Grade:</strong>
-    <%= child.grade %>
-  </p>
-    <strong>Parent Name:</strong>
-    <%= child.parent_name %>
-  </p>
-
-  <p>
-    <strong>Address:</strong>
-    <%= child.address %>
-  </p>
-  <p>
-    <strong>Phone Number:</strong>
-    <%= child.phone_number %>
-  </p>
-  <p>
-    <strong>Enrollment Date:</strong>
-    <%= child.enrollment_date %>
-  </p>
- <p>
-  <strong>Assigned Pod:</strong>
-  <% if child.pod %>
-    <%= link_to child.pod.name, pod_path(child.pod) %>
-  <% else %>
-    No Assigned Pod
-  <% end %>
-</p>
-
-
-
-  
-
+<div class="container">
+  <div class="jumbotron">
+    <div id="<%= dom_id child %>">
+      <p>
+        <strong>Name:</strong>
+        <%= child.name %>
+      </p>
+      <p>
+        <strong>Gender:</strong>
+        <%= child.gender %>
+      </p>
+      <p>
+        <strong>Age:</strong>
+        <%= child.age %>
+      </p>
+      <p>
+        <strong>Grade:</strong>
+        <%= child.grade %>
+      </p>
+      <p>
+        <strong>Parent Name:</strong>
+        <%= child.parent_name %>
+      </p>
+      <p>
+        <strong>Address:</strong>
+        <%= child.address %>
+      </p>
+      <p>
+        <strong>Phone Number:</strong>
+        <%= child.phone_number %>
+      </p>
+      <p>
+        <strong>Enrollment Date:</strong>
+        <%= child.enrollment_date %>
+      </p>
+      <p>
+        <strong>Assigned Pod:</strong>
+        <% if child.pod %>
+          <%= link_to child.pod.name, pod_path(child.pod) %>
+        <% else %>
+          No Assigned Pod
+        <% end %>
+      </p>
+    </div>
+  </div>
 </div>

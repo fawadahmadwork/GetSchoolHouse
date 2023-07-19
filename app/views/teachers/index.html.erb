@@ -1,22 +1,18 @@
-<div class= "margin-header">
-<p style="color: green" ><%= notice %></p>
+<div class="jumbotron margin-header">
+  <p style="color: green;"><%= notice %></p>
+  <h1 class="display-4 ">Teachers</h1>
 
-<h1 class= "tester ">Teachers</h1>
-
-<div id="teachers">
-  <% @teachers.each do |teacher| %>
-     <p>
-    <strong class="extra">Name:</strong>
-    <%= teacher.name %>
-  </p>
-  <p>
-    <strong>Grade:</strong>
-    <%= teacher.grade %>
-  </p>
-    <p>
-      <%= link_to "Show this teacher", teacher %>
-    </p>
-  <% end %>
+  <div id="teachers">
+    <% @teachers.each do |teacher| %>
+      <div class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title"><%= teacher.name %></h5>
+          <p class="card-text"><strong>Grade:</strong> <%= teacher.grade %></p>
+          <a href="<%= teacher_path(teacher) %>" class="btn btn-light text-dark rounded-pill px-4 py-2">
+            Show this teacher
+          </a>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
-</div>
-

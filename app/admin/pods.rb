@@ -20,7 +20,8 @@ ActiveAdmin.register Pod do
       f.input :image_url
       f.input :zip_code
       f.input :grade, as: :select, collection: (1..5).map { |n| [n.ordinalize, n] }
-      f.input :teacher, as: :select, collection: Teacher.where(grade: f.object.grade)
+      f.input :teacher, as: :select,
+                        collection: Teacher.includes(:pod).where(pods: { teacher_id: nil }, grade: f.object.grade)
     end
     f.actions
   end
@@ -49,6 +50,12 @@ ActiveAdmin.register Pod do
           column :grade
         end
       end
+    end
+  end
+  controller do
+    def update
+      params[:pod][:teacher_id] = resource.teacher_id if params[:pod][:teacher_id].blank?
+      super
     end
   end
 

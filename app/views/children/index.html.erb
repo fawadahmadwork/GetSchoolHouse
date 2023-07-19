@@ -1,18 +1,18 @@
-<p style="color: green"><%= notice %></p>
-<div class= "margin-header">
-<h1>Children</h1>
+<div class="jumbotron margin-header">
+  <p style="color: green;"><%= notice %></p>
+  <h1 class="display-4">Children</h1>
 
-<%= link_to "New child", new_child_path %><br><br>
-<div id="children">
-  <% @children.each do |child| %>
-   <p>
-    <strong>Name:</strong>
-    <%= child.name %>
-  </p>
-    <p>
-      <%= link_to "Show this child", child %>
-    </p>
-  <% end %>
+  <div id="children">
+    <% @children.each do |child| %>
+      <div class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title"><%= child.name %></h5>
+          <p class="card-text"><strong>Grade:</strong> <%= child.grade %></p>
+          <a href="<%= child_path(child) %>" class="btn btn-light text-dark rounded-pill px-4 py-2">
+            Show this child
+          </a>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
-</div>
-

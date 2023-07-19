@@ -1,5 +1,4 @@
 class Pod < ApplicationRecord
-  scope :active_pods, -> { where.not(teacher_id: nil) }
   belongs_to :teacher, optional: true
   has_one_attached :image
   has_many :reviews, dependent: :destroy
@@ -18,6 +17,10 @@ class Pod < ApplicationRecord
 
   def self.active_pods
     where.not(teacher_id: nil)
+  end
+
+  def self.pod_requests
+    PodRequest.joins(:pod).where(pods: { id: all })
   end
 
   def approved_children

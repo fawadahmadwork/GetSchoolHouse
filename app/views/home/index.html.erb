@@ -8,9 +8,10 @@
           <div class="row">
             <div class="col-lg-20">
            <h2 style="color: #f2f2ed; text-shadow: 2px 2px 4px #000;">
-  <strong>"Get School House"</strong>
-</h2>
-<br>
+             <strong>"Get School House"</strong>
+           </h2> 
+            <button id="hide-h2-button">Hide H2 Tags</button>
+             <br>
               <p>
              Right place to secure your <strong>"Child's Future"</strong>
               </p>
@@ -23,13 +24,10 @@ We are here to serve you with <strong>"Get School House"</strong> micro school s
             <div class="col-lg-5">
             <br>
             <%= form_tag(pods_path, method: :get, class: "sign-up-form d-flex") do %>
-  <%= text_field_tag(:search, params[:search], placeholder: "Name, address, zip_code, or grade '1 to 5'", class: "form-control") %>
-  <%= submit_tag("Search", class: "btn btn-dark") %>
-<% end %>
-              
-                
-             
-            </div>
+            <%= text_field_tag(:search, params[:search], placeholder: "Name, address, zip_code, or grade '1 to 5'", class: "form-control") %>
+            <%= submit_tag("Search", class: "btn btn-dark") %>
+            <% end %>
+          </div>
           </div>
         </div>
        </section>
@@ -44,18 +42,11 @@ We are here to serve you with <strong>"Get School House"</strong> micro school s
             <a href="index.html" class="logo d-flex align-items-center">
               <span>Get school System</span>
             </a>
-        <p>
-            Right place to secure your <strong>"Child's Future"</strong>
+        <p>Right place to secure your <strong>"Child's Future"</strong>
             <br> No need to worry about your child's acadmic session <br>
             We are here to serve you with<br> <strong>"Get School House"</strong> micro school system
-            Find pods for studying Near to your home
-              
-        </p>
-      
-        
-
-
-      <div class="social-links d-flex mt-4">
+            Find pods for studying Near to your home</p>
+        <div class="social-links d-flex mt-4">
           <%= link_to '', '', class: 'bi bi-twitter' %>
           <%= link_to '', '', class: 'bi bi-facebook' %>
           <%= link_to '', '', class: 'bi bi-instagram' %>
@@ -67,21 +58,21 @@ We are here to serve you with <strong>"Get School House"</strong> micro school s
           <div class="col-lg-2 col-6 footer-links">
   <h4>Useful Links</h4>
   <ul>
-    <li><%= link_to 'Home', '#' %></li>
-    <li><%= link_to 'About us', '#' %></li>
-    <li><%= link_to 'Services', '#' %></li>
-    <li><%= link_to 'Terms of service', '#' %></li>
-    <li><%= link_to 'Privacy policy', '#' %></li>
+    <li><%= link_to 'Home', root_path %></li>
+    <li><%= link_to 'About us', about_path %></li>
+    <li><%= link_to 'Services', services_path %></li>
+    <li><%= link_to 'Terms of service', term_of_services_path %></li>
+    <li><%= link_to 'Privacy policy', privacy_policy_path %></li>
   </ul>
 </div>
 
 <div class="col-lg-2 col-6 footer-links">
   <h4>Our Services</h4>
   <ul>
-    <li><%= link_to 'Micro School', '#' %></li>
-    <li><%= link_to 'Pod Creation', '#' %></li>
-    <li><%= link_to 'School managnent', '#' %></li>
-    <li><%= link_to 'Marketing', '#' %></li>
+    <li>Micro School</li>
+    <li>Pod Creation</li>
+    <li>School managnent</li>
+    <li>Marketing</li>
   </ul>
 </div>
 
@@ -111,5 +102,4 @@ We are here to serve you with <strong>"Get School House"</strong> micro school s
       class="scroll-top d-flex align-items-center justify-content-center"
       ><i class="bi bi-arrow-up-short"></i
     ></a>
-
-</body>
+  </body>

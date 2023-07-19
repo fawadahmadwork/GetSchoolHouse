@@ -1,44 +1,49 @@
-<div id="<%= dom_id teacher %>">
-  <p>
-    <strong class= "tester">Name:</strong>
-    <%= teacher.name %>
-  </p>
+<div class="container">
+  <div class="jumbotron">
+    <div id="<%= dom_id teacher %>" class="mt-4">
+    <%= link_to "All Teachers", teachers_path %><br><br>
+      <p>
+        <strong class="tester">Name:</strong>
+        <%= teacher.name %>
+      </p>
 
-  <p>
-    <strong>Gender:</strong>
-    <%= teacher.gender %>
-  </p>
-  <p>
-    <strong>Grade:</strong>
-    <%= teacher.grade %>
-  </p>
-  <p>
-  <p>
-    <strong>email:</strong>
-    <%= teacher.email %>
-  </p>
-    <strong>Qualififcation:</strong>
-    <%= teacher.qualififcation %>
-  </p>
+      <p>
+        <strong>Gender:</strong>
+        <%= teacher.gender %>
+      </p>
+      <p>
+        <strong>Grade:</strong>
+        <%= teacher.grade %>
+      </p>
+      <p>
+        <strong>Email:</strong>
+        <%= teacher.email %>
+      </p>
+      <p>
+        <strong>Qualification:</strong>
+        <%= teacher.qualififcation %>
+      </p>
 
-  <p>
-    <strong>languages_known:</strong>
-    <%= teacher.languages_known %>
-  </p>
-  <p>
-    <strong>avatar:</strong>
-    <%= teacher.avatar %>
-  </p>
-  <p>
-    <strong>experince:</strong>
-    <%= teacher.experince %>
-  </p>
-  <p>
-    <strong>Assinged Pod:</strong>
-    <% if  teacher.pod.present? %>
-     <%= link_to teacher.pod.name, pod_path(teacher.pod) %>
-    <% else%>
-    Not Assigned
-  </p>
-<% end %>
+      <p>
+        <strong>Languages Known:</strong>
+        <%= teacher.languages_known %>
+      </p>
+      <p>
+        <strong>Avatar:</strong>
+        <%= teacher.avatar %>
+      </p>
+      <p>
+        <strong>Experience:</strong>
+        <%= teacher.experince %>
+      </p>
+      <p>
+        <strong>Assigned Pod:</strong>
+        <% if teacher.pod.present? %>
+          <%= link_to teacher.pod.name, pod_path(teacher.pod) %>
+        <% else %>
+          Not Assigned
+        <% end %>
+      </p>
+    </div>
+  </div>
 </div>

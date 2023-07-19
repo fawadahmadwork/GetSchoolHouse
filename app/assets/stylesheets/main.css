@@ -2989,9 +2989,10 @@ section {
   z-index: 3;
 }
 .extra-red{
-   color: black;
+   color: rgb(7, 6, 6);
    font-size: 40px;
-   font-weight: 900;
+   font-weight: 600;
+  
 }
 .hero-carousel {
   --color-default: #ffffff;
@@ -3006,3 +3007,17 @@ section {
   align-items: center;
   justify-content: center;
 }
+.carousel-caption-new {
+    position: absolute;
+    right: 15%;
+    left: 15%;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+    color: #fff;
+    text-align: center;
+    text-shadow: 2px 2px 4px #f2eded;
+}
+.black-link {
+  color: black !important;
+}
+

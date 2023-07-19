@@ -1,8 +1,7 @@
-<%= form_with(model: child) do |form| %>
+<%= form_with(model: child, class: "container") do |form| %>
   <% if child.errors.any? %>
-    <div style="color: red">
+    <div class="alert alert-danger">
       <h2><%= pluralize(child.errors.count, "error") %> prohibited this child from being saved:</h2>
-
       <ul>
         <% child.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -11,44 +10,47 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
-  </div>
-  <div>
-    <%= form.label :Address, style: "display: block" %>
-     <%= form.text_field :address, value: current_user.address %>
-</div>
-  <div>
-    <%= form.label :Parent_Name, style: "display: block" %>
-    <%= form.text_field :parent_name, value: current_user.name,  readonly: true %>
-  </div>
-  <div>
-    <%= form.label :phone_number, style: "display: block" %>
-    <%= form.text_field :phone_number, value: current_user.phone_number, readonly: true%>
-  </div>
-  <div>
-    <%= form.label :enrollment_date, style: "display: block" %>
-    <%= form.text_field :enrollment_date, value: Time.now, readonly: true %>
-  </div>
- <div>
-  <%= form.label :gender, style: "display: block" %>
-  <%= form.select :gender, [['Male', 'male'], ['Female', 'female']] %>
-</div>
-
-
-  <div>
-    <%= form.label :age, style: "display: block" %>
-  
-  <%= form.select :age, (6..12).to_a %>
-   
+  <div class="mb-3">
+    <%= form.label :name, class: "form-label" %>
+    <%= form.text_field :name, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :grade, style: "display: block" %>
-     <%= form.select :grade, options_for_select((1..5).map { |n| [n.ordinalize, n] }) %>
-  </div><br>
-  <div>
-    <%= form.submit %>
+  <div class="mb-3">
+    <%= form.label :address, class: "form-label" %>
+    <%= form.text_field :address, value: current_user.address, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :parent_name, class: "form-label" %>
+    <%= form.text_field :parent_name, value: current_user.name, readonly: true, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :phone_number, class: "form-label" %>
+    <%= form.text_field :phone_number, value: current_user.phone_number, readonly: true, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :enrollment_date, class: "form-label" %>
+    <%= form.text_field :enrollment_date, value: Time.now, readonly: true, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :gender, class: "form-label" %>
+    <%= form.select :gender, [['Male', 'male'], ['Female', 'female']], class: "form-select" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :age, class: "form-label" %><span class="mr-4">
+    <%= form.select :age, (6..12).to_a, class: "form-select" %><span>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :grade, class: "form-label" %>
+    <%= form.select :grade, options_for_select((1..5).map { |n| [n.ordinalize, n] }), class: "form-select" %>
+  </div>
+
+  <div class="mb-4">
+    <%= form.submit "Submit", class: "btn btn-lg btn-primary btn-block" %>
   </div>
 <% end %>
