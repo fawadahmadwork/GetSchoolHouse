@@ -2,7 +2,7 @@
   <%= form_tag(pods_path, method: :get, class: "search-form") do %>
     <div style="display: flex; width: 100%;">
       <%= text_field_tag(:search, params[:search], placeholder: "Search by name, address, zip_code, or grade '1 to 5'", style: "width: 100%;") %>
-      <%= submit_tag("Search", style: "margin-left: 5px;") %>
+      <%= submit_tag("Search", class: "btn btn-dark", style: "margin-left: 50px;") %>
     </div>
   <% end %>
 </div>

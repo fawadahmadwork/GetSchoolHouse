@@ -1,34 +1,41 @@
-<div id="<%= dom_id pod %>">
-  <p>
-    <strong>Name:</strong>
-    <%= pod.name %>
-  </p>
+<!-- app/views/your_controller/show.html.erb -->
+<div class="row">
+  <div class="col-lg-6">
+    <div id="<%= dom_id pod %>">
+      <p>
+        <strong>Name:</strong>
+        <%= pod.name %>
+      </p>
 
-  <p>
-    <strong>Address:</strong>
-    <%= pod.address %>
-  </p>
+      <p>
+        <strong>Address:</strong>
+        <%= pod.address %>
+      </p>
 
-  <p>
-    <strong>Grade:</strong>
-    <%= pod.grade %>
-  </p>
+      <p>
+        <strong>Grade:</strong>
+        <%= pod.grade %>
+      </p>
 
-  <p>
-    <strong>ZipCode:</strong>
-    <%= pod.zip_code %>
-  </p>
+      <p>
+        <strong>ZipCode:</strong>
+        <%= pod.zip_code %>
+      </p>
 
-  <% if pod.teacher.present? %>
-    <p>
-      <strong>Assigned Teacher:</strong>
-      <% if user_signed_in?%>
-       <%= link_to pod.teacher.name, teacher_path(pod.teacher) %>
-      <% else %>
-      <%= pod.teacher.name %>
-     </p>
-  <% end %>
-  <% end %>
-
-
+      <% if pod.teacher.present? %>
+        <p>
+          <strong>Assigned Teacher:</strong>
+          <% if user_signed_in? %>
+            <%= link_to pod.teacher.name, teacher_path(pod.teacher) %>
+          <% else %>
+            <%= pod.teacher.name %>
+          <% end %>
+        </p>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-lg-4 d-flex justify-content-center align-items-center">
+    <!-- Add the image here -->
+    <%= image_tag pod.image_url, class: 'img-fluid', alt: 'Pod Image' if pod.image_url.present? %>
+  </div>
 </div>

@@ -3,7 +3,8 @@
     <%= form.hidden_field :pod_id, value: @pod.id %>
     <%= form.label :child_id, 'Select Child' %>
     <% assigned_child_ids = @pod.children.pluck(:id) %>
-    <%= form.collection_select(:child_id, current_user.children.where(grade: @pod.grade).where.not(id: assigned_child_ids), :id, :name, prompt: 'Select a Child') %>
+    <% same_grade_children = current_user.children.where(grade: @pod.grade).where.not(id: assigned_child_ids) %>
+    <%= form.collection_select(:child_id, same_grade_children, :id, :name, prompt: 'Select a Child', options: options_for_select(same_grade_children.map { |child| [child.name, child.id, { disabled: false }] })) %>
     <%= form.submit 'Apply for Pod' %>
   <% end %>
 <% end %>

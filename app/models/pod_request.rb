@@ -9,22 +9,28 @@ class PodRequest < ApplicationRecord
   def pending?
     status == 'pending'
   end
+
   def canceled?
     status == 'canceled'
   end
+
+  def approved?
+    status == 'approved'
+  end
+
   def validate_create_approved_pod_request
     existing_pod_request = child.pod_requests.find_by(pod: pod)
-    if existing_pod_request.present?
-      errors.add(:base, "Child already has an approved pod request for this pod")
-    end
+    return unless existing_pod_request.present?
+
+    errors.add(:base, 'Child already has an approved pod request for this pod')
   end
-  
+
   def validate_approved_pod_request
-    if child.approved_pod_request && child.approved_pod_request != self
-      errors.add(:base, "Child already has an approved pod request")
-    end
+    return unless child.approved_pod_request && child.approved_pod_request != self
+
+    errors.add(:base, 'Child already has an approved pod request')
   end
-  
+
   def status_changed_to_approved?
     status == 'approved' && status_changed?
   end

@@ -1,4 +1,4 @@
-<body class="index-page">
+ <body class="index-page" data-bs-spy="scroll" data-bs-target="#navmenu">
     <main id="main">
       <section id="hero" class="hero">
        <%= image_tag('child2.jpg', alt: '', data: { aos: 'fade-in' }) %>
@@ -10,21 +10,19 @@
            <h2 style="color: #f2f2ed; text-shadow: 2px 2px 4px #000;">
              <strong>"Get School House"</strong>
            </h2> 
-            <button id="hide-h2-button">Hide H2 Tags</button>
-             <br>
               <p>
              Right place to secure your <strong>"Child's Future"</strong>
               </p>
               <p> No need to worry about your child's acadmic session <br>
-We are here to serve you with <strong>"Get School House"</strong> micro school system</p>
-<p>Find pods for studying Near to your home</p><br>
-<h2><strong>'Be Carefull'  'Be healthy' 'Be Safe'</strong></h2>
+                We are here to serve you with <strong>"Get School House"</strong> micro school system</p>
+               <p>Find pods for studying Near to your home</p><br>
+            <h2><strong>'Be Carefull'  'Be healthy' 'Be Safe'</strong></h2>
             </div>
 
-            <div class="col-lg-5">
+            <div class="col-lg-6">
             <br>
             <%= form_tag(pods_path, method: :get, class: "sign-up-form d-flex") do %>
-            <%= text_field_tag(:search, params[:search], placeholder: "Name, address, zip_code, or grade '1 to 5'", class: "form-control") %>
+            <%= text_field_tag(:search, params[:search], placeholder: "Search by Name, address, zip_code, grade 1 to 5", class: "form-control") %>
             <%= submit_tag("Search", class: "btn btn-dark") %>
             <% end %>
           </div>
@@ -42,7 +40,7 @@ We are here to serve you with <strong>"Get School House"</strong> micro school s
             <a href="index.html" class="logo d-flex align-items-center">
               <span>Get school System</span>
             </a>
-        <p>Right place to secure your <strong>"Child's Future"</strong>
+            <p>Right place to secure your <strong>"Child's Future"</strong>
             <br> No need to worry about your child's acadmic session <br>
             We are here to serve you with<br> <strong>"Get School House"</strong> micro school system
             Find pods for studying Near to your home</p>
@@ -92,8 +90,6 @@ We are here to serve you with <strong>"Get School House"</strong> micro school s
           &copy; <span>Copyright</span> <strong class="px-1">Getschoolsystem</strong>
           <span>All Rights Reserved</span>
         </p>
-        <div class="credits">
-        </div>
       </div>
     </footer>
      <a

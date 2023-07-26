@@ -1,4 +1,13 @@
 <section class="margin-header" style="background-color: #f2f2f2">
-    <%= render "search" %>
-    <%= render "carousel" %>
+    <%= render "search" %><br>
+      <% unless @search_active %>
+       <%= render "carousel" %>
+       <%else%>
+      <% @pods.each do |pod| %>
+      <div class= "container-fluid">
+        <h3><%= link_to pod.name, pod_path(pod),style: "text-decoration: none;" %></h3>
+        <h4>Grade: <%= pod.grade %></h4>
+      </div>
+    <% end %>
+      <% end %>
 </section>
